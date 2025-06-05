@@ -12,16 +12,17 @@
   "background": {
     "service_worker": "background.js"
   },
-  "action": {
-  },
-  "permissions": ["scripting", "activeTab", "contextMenus"],
-  "host_permissions": ["<all_urls>"],
+   "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {},
+  "permissions": ["scripting", "activeTab", "windows"],
   "commands": {
-    "_execute_action": {
+    "summarize-text": {
       "suggested_key": {
-        "default": "Ctrl+B",
-        "mac": "Command+B"
-      }
+        "default": "Ctrl+Shift+X"
+      },
+      "description": "Summarize selected text"
     }
   }
 }
