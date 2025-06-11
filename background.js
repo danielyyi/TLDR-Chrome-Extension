@@ -1,51 +1,24 @@
-import OpenAI from "openai";
-
-const openai = new OpenAI({
-  apiKey:
-    "",
-});
-
 let summary = "";
 
-/*    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content:
-            "You summarize text into a simple 1 sentence overview, abstracting into Fortnite  terms and lingo. You do not need to explain how it connects back to the original text.",
-        },
-        {
-          role: "user",
-          content: `Explain this text in Fortnite terms:\n\n${text}`,
-        },
-      ],
-      max_tokens: 60,
-    });
- */
-
-// Make this async and call OpenAI
+// Make this async and call your proxy server instead of OpenAI directly
 async function generateSummary(text) {
   try {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o",
-      max_tokens: 50,
-      messages: [
-        {
-          role: "system",
-          content:
-            "You provide a very simple, one-sentence summary of the user's text.",
-        },
-        {
-          role: "user",
-          content: text, // just the raw text, no extra instruction needed here
-        },
-      ],
+    const response = await fetch("http://localhost:3000/summarize", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text }),
     });
-    const result = completion.choices[0]?.message?.content;
-    return result || "No summary generated.";
+
+    if (!response.ok) {
+      throw new Error(`Proxy server error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.summary || "No summary generated.";
   } catch (error) {
-    console.error("OpenAI API error:", error);
+    console.error("Error calling proxy server:", error);
     return "Error generating summary.";
   }
 }
