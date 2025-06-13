@@ -2,7 +2,7 @@
 
 **The TL;DR Chrome Extension** summarizes and re-explains selected text on any webpage. It uses a lightweight proxy server to securely connect with the OpenAI API, giving you fast, clear summaries of dense content like news articles, blogs, and reports.
 
-## This extension is currently not published; however you can view a video of how it works here: 
+**This extension is currently not published; however you can view a video of how it works here:**
 https://youtu.be/21A77E1vTYg
 
 To run yourself:
