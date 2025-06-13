@@ -6,7 +6,7 @@
 
 To run yourself:
 1. Clone this repo:
-2. Set up the proxy server (See my TL;DR Proxy github repo [here]((https://github.com/danielyyi/TL-DR-Proxy-Server)))
+2. Set up the proxy server (See my TL;DR Proxy github repo [here](https://github.com/danielyyi/TL-DR-Proxy-Server))
 2. Go to `chrome://extensions/` in Chrome.
 3. Enable Developer Mode (top right).
 4. Click *Load unpacked* and select the `/extension` folder.
