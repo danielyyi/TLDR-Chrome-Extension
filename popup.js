@@ -41,7 +41,7 @@ async function handleButtonClick(endpoint) {
       return;
     }
 
-    if (selectedText.length > 1000) {
+    if (selectedText.length > 5000) {
       summaryElement.textContent = 'Selected text is too long. Please select less than 1000 characters.';
       summaryElement.className = 'error visible';
       return;
